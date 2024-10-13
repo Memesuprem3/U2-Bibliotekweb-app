@@ -1,0 +1,22 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Sök efter en bok</h2>
+    <form (ngSubmit)="onSearch()" #searchForm="ngForm">
+      <div class="form-group mb-3">
+        <label for="bookId">Ange bok-ID</label>
+        <input type="number" id="bookId" class="form-control" placeholder="Ange bok-ID" required [(ngModel)]="bookId" name="bookId" />
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Sök</button>
+      </div>
+    </form>
+  
+    <div *ngIf="bok" class="mt-4">
+      <h3>Bokinformation</h3>
+      <p><strong>Titel:</strong> {{ bok.title }}</p>
+      <p><strong>Författare:</strong> {{ bok.author }}</p>
+      <p><strong>År:</strong> {{ bok.year }}</p>
+      <p><strong>Genre:</strong> {{ bok.genre }}</p>
+      <p><strong>Beskrivning:</strong> {{ bok.description }}</p>
+      <p><strong>Tillgänglighet:</strong> {{ bok.isAvailable ? 'Tillgänglig' : 'Ej tillgänglig' }}</p>
+    </div>
+  </div>

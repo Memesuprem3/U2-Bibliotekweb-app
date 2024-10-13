@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Boklista</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Titel</th>
+          <th>Författare</th>
+          <th>År</th>
+          <th>Genre</th>
+          <th>Beskrivning</th>
+          <th>Tillgänglighet</th>
+          <th>Åtgärder</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bok of bocker">
+          <td>{{ bok.title }}</td>
+          <td>{{ bok.author }}</td>
+          <td>{{ bok.year }}</td>
+          <td>{{ bok.genre }}</td>
+          <td>{{ bok.description }}</td>
+          <td>
+            <span *ngIf="!bok.isAvailable" class="text-danger">Ej tillgänglig</span>
+            <span *ngIf="bok.isAvailable" class="text-success">Tillgänglig</span>
+          </td>
+          <td>
+            <button class="btn btn-primary" (click)="editBook(bok)">Redigera</button>
+            <button class="btn btn-danger m-2" (click)="onDelete(bok.id)">Ta bort</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

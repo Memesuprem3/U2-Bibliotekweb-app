@@ -1,0 +1,38 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Lägg till eller redigera en bok</h2>
+  <form (ngSubmit)="onSubmit()" #bokForm="ngForm">
+    <div class="form-group mb-3">
+      <label for="title">Titel</label>
+      <input type="text" id="title" class="form-control" placeholder="Ange boktitel" required [(ngModel)]="nyBok.title" name="title" />
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="author">Författare</label>
+      <input type="text" id="author" class="form-control" placeholder="Ange författare" required [(ngModel)]="nyBok.author" name="author" />
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="publiced">År publicerad</label>
+      <input type="number" id="publiced" class="form-control" placeholder="Ange år" [(ngModel)]="nyBok.year" name="publiced" />
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="genre">Genre</label>
+      <input type="text" id="genre" class="form-control" placeholder="Ange genre" [(ngModel)]="nyBok.genre" name="genre" />
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="description">Beskrivning</label>
+      <textarea id="description" class="form-control" placeholder="Beskriv boken" rows="3" [(ngModel)]="nyBok.description" name="description"></textarea>
+    </div>
+
+    <div class="form-check mb-3">
+      <input type="checkbox" id="available" class="form-check-input" [(ngModel)]="nyBok.isAvailable" name="isAvailable" />
+      <label class="form-check-label" for="available">Tillgänglig</label>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary w-100">Spara</button>
+    </div>
+  </form>
+</div>
